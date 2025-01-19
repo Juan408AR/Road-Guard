@@ -8,10 +8,17 @@
 import SwiftUI
 
 @main
-struct Road_Guard_Watch_AppApp: App {
+struct Road_Guard_Watch_App: App {
     var body: some Scene {
         WindowGroup {
             LandingPage()
         }
+    }
+}
+
+struct Road_Guard_Watch_App_Previews: PreviewProvider {
+    static var previews: some View {
+        LandingPage()
+        
     }
 }

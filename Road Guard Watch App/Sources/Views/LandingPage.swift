@@ -10,10 +10,26 @@ import SwiftUI
 struct LandingPage: View {
     var body: some View {
         GeometryReader { geometry in
+            ZStack {
                 Image("LandingPage")
-                .resizable()
-                .scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                
+                VStack {
+                    Spacer()
+                        .frame(height: geometry.size.height * 0.2)
+                    Text("Road Guard")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.white)
+                        .shadow(color: .black, radius: 1, x: 1, y: 1)
+                        .padding()
+                        .cornerRadius(10)
+                    
+                    Spacer()
+                }
+            }
+            
         }
         .ignoresSafeArea()
     }
