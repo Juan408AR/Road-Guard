@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LandingPage: View {
+    
+    @State private var isLoginActive = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -27,7 +30,24 @@ struct LandingPage: View {
                         .cornerRadius(10)
                     
                     Spacer()
+                    
+                    Button(action: {
+                        isLoginActive = true
+                    }) {
+                        Text("Touch to Login")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue.opacity(0.6))
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                    Spacer()
+                    
                 }
+            }
+            .fullScreenCover(isPresented: $isLoginActive) {
+                LoginPage()
             }
             
         }
