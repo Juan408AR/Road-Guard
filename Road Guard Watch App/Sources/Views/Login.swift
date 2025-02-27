@@ -13,40 +13,35 @@ struct LoginPage: View {
     @State private var showingAlert: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack(){
+        GeometryReader { geometry in
+            
+            VStack(alignment: .center, spacing: 10) {
                 
                 Spacer()
-                    .frame(height: 50)
+                
                 TextField("Email", text: $email)
                     .textContentType(.emailAddress)
                     .textInputAutocapitalization(.never)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
-                    .padding(.horizontal, 10)
-                
-                
-                
+                    .frame(width: geometry.size.width * 0.8, height: 50)
+                    .font(.system(size: 14))
+                    .padding(.horizontal)
+
                 SecureField("Password", text: $password)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
-                    .padding(.horizontal, 10)
+                    .frame(width: geometry.size.width * 0.8, height: 50)
+                    .padding(.horizontal)
                 
                 Button(action: {
                     showingAlert = true
                 }) {
                     Text("Login")
-                        .font(.headline)
-                        .foregroundStyle(Color.white)
-                        .padding()
-                        .background(Color.blue.opacity(0.6))
-                        .cornerRadius(10)
                 }
-                .padding()
-                Spacer()
+                .font(.system(size: 14))
+                .frame(width: geometry.size.width * 0.6, height: 50)
+
             }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            
+            
         }
             
     }

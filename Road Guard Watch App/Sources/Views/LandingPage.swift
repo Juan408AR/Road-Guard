@@ -36,7 +36,6 @@ struct LandingPage: View {
                     }) {
                         Text("Touch to Login")
                             .font(.headline)
-                            .foregroundColor(.white)
                             .padding()
                             .background(Color.blue.opacity(0.6))
                             .cornerRadius(10)
