@@ -15,59 +15,51 @@ struct SignUpPage: View {
 
     
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                ScrollView {
-                    VStack(alignment: .center, spacing: 10) {
-                        
-                        TextField("Name", text: $name)
+        GeometryReader { geometry in
+            ScrollView {
+                VStack(alignment: .center, spacing: 10) {
+                    
+                    Spacer()
+                    
+                    TextField("Name", text: $name)
+                        .font(.system(size: 14))
+                        .frame(width: geometry.size.width * 0.8, height: 50)
+                        .padding(.horizontal)
+                    
+                    TextField("Email", text: $email)
+                        .font(.system(size: 14))
+                        .frame(width: geometry.size.width * 0.8, height: 50)
+                        .padding(.horizontal)
+                
+                    SecureField("Password", text: $password)
+                        .font(.system(size: 14))
+                        .frame(width: geometry.size.width * 0.8, height: 50)
+                        .padding(.horizontal)
+                    
+                    SecureField("Confirm Password", text: $confirmPassword)
+                        .font(.system(size: 14))
+                        .frame(width: geometry.size.width * 0.8, height: 50)
+                        .padding(.horizontal)
+
+                    Button(action: {
+                        signUp()
+                    }) {
+                        Text("Sign Up")
                             .font(.system(size: 14))
-                            .frame(width: geometry.size.width * 0.8, height: 50)
-                            .padding(.horizontal)
-                        
-                        TextField("Email", text: $email)
-                            .font(.system(size: 14))
-                            .frame(width: geometry.size.width * 0.8, height: 50)
-                            .padding(.horizontal)
-                        
-                        SecureField("Password", text: $password)
-                            .font(.system(size: 14))
-                            .frame(width: geometry.size.width * 0.8, height: 50)
-                            .padding(.horizontal)
-                        
-                        SecureField("Confirm Password", text: $confirmPassword)
-                            .font(.system(size: 14))
-                            .frame(width: geometry.size.width * 0.8, height: 50)
-                            .padding(.horizontal)
-                        
-                        Button(action: {
-                            signUp()
-                        }) {
-                            Text("Sign Up")
-                                .font(.system(size: 14))
-                                .frame(width: geometry.size.width * 0.6, height: 50)
-                        }
-                        .padding(.top, 10)
-                        
-                        NavigationLink(destination: LoginPage()) {
-                            Text("Already have an account? Login")
-                                .font(.system(size: 12))
-                                .foregroundStyle(Color.blue)
-                                .underline()
-                        }
-                        .padding(.top, 5)
-                        
+                            .frame(width: geometry.size.width * 0.6, height: 50)
                     }
-                    .frame(width: geometry.size.width)
+                    .padding(.top, 10)
                     
                 }
-                
-                
-                
+                .frame(width: geometry.size.width)
+
             }
             
-            .navigationTitle("Sign Up")
+            
+            
         }
+        
+        .navigationTitle("Sign Up")
     }
     
     private func signUp() {
