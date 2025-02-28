@@ -11,7 +11,9 @@ import SwiftUI
 struct Road_Guard_Watch_App: App {
     var body: some Scene {
         WindowGroup {
-            LandingPage()
+            NavigationView {
+                LandingPage()
+            }
         }
     }
 }
