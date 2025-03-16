@@ -10,10 +10,10 @@ import SwiftUI
 struct LoginPage: View {
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var showingAlert: Bool = false
+    @State private var navigateToHome: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             GeometryReader { geometry in
                 ScrollView {
                     VStack(alignment: .center, spacing: 10) {
@@ -32,10 +32,12 @@ struct LoginPage: View {
                             .padding(.horizontal)
                         
                         Button(action: {
-                            showingAlert = true
+                            navigateToHome = true
+                            print("showingAlert set to true")
                         }) {
                             Text("Login")
                         }
+                        
                         .font(.system(size: 14))
                         .frame(width: geometry.size.width, height: 50)
                         
@@ -47,10 +49,15 @@ struct LoginPage: View {
                         }
                         .frame(width: geometry.size.width, height: 50)
                         
-                        
                     }
+                    .navigationDestination(isPresented: $navigateToHome) {
+                        HomeScreen()
+                    }
+
                     .frame(width: geometry.size.width)
+                    
                 }
+                
                 
                 
             }
